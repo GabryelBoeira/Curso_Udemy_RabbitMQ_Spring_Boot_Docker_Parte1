@@ -20,7 +20,7 @@ public class ProducerRabbitConfiguration {
     @Value("${spring.rabbitmq.request.routing-key.producer}")
     private String queue;
 
-    @Value("${spring.rabbitmq.request.deadletter.producer}")
+    @Value("${spring.rabbitmq.request.dead-letter.producer}")
     private String deadLetter;
 
     @Bean
@@ -39,20 +39,20 @@ public class ProducerRabbitConfiguration {
         Map<String, Object> args = new HashMap<>();
 
         args.put("x-dead-letter-exchange", exchange);
-        args.put("x-dead-letter-rousting-key", deadLetter);
+        args.put("x-dead-letter-routing-key", deadLetter);
 
         return new Queue(queue, true, false, false, args);
     }
 
     @Bean
-    public Binding bindingQueue() {
+    Binding bindingQueue() {
         return BindingBuilder.bind(queue())
                 .to(exchange())
                 .with(queue);
     }
 
     @Bean
-    public Binding bindingDeadLetter() {
+    Binding bindingDeadLetter() {
         return BindingBuilder.bind(deadLetter())
                 .to(exchange())
                 .with(deadLetter);

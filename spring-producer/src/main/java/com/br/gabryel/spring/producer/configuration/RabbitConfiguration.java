@@ -19,7 +19,7 @@ public class RabbitConfiguration {
     private ConnectionFactory connectionFactory;
 
     @Bean
-    public SimpleRabbitListenerContainerFactory simpleRabbitListenerContainerFactory(){
+    SimpleRabbitListenerContainerFactory simpleRabbitListenerContainerFactory() {
 
         SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
         factory.setConnectionFactory(connectionFactory);
@@ -29,7 +29,7 @@ public class RabbitConfiguration {
     }
 
     @Bean
-    public RabbitTemplate rabbitTemplate() {
+    RabbitTemplate rabbitTemplate() {
 
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setMessageConverter(jacksonConverter());
@@ -39,7 +39,7 @@ public class RabbitConfiguration {
 
 
     @Bean
-    public Jackson2JsonMessageConverter jacksonConverter(){
+    Jackson2JsonMessageConverter jacksonConverter() {
 
         final ObjectMapper mapper = Jackson2ObjectMapperBuilder
                 .json()
@@ -47,6 +47,6 @@ public class RabbitConfiguration {
                 .dateFormat(new StdDateFormat())
                 .build();
 
-        return new Jackson2JsonMessageConverter(mapper );
-    };
+        return new Jackson2JsonMessageConverter(mapper);
+    }
 }

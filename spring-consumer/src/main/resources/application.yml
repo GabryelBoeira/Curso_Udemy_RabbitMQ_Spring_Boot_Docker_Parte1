@@ -7,9 +7,9 @@ spring:
     username: guest
     password: guest
     request:
-      exchange:
+      exchenge:
         producer: ex.producer.aula-spring
       routing-key:
         producer: rk.producer.aula-spring
-      deadletter:
-        producer: dl.prodrucer.aula-spring
+      dead-letter:
+        producer: dl.producer.aula-spring
