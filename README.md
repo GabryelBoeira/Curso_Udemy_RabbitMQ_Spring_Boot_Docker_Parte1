@@ -30,3 +30,7 @@ Para executar este projeto, você precisará do docker instalado.
 - Consumer Responser por ler/capturar o item criado no RabbitMQ e processar a informação
 
 ------------------
+
+- Certificado de Conclusão [Acesse](https://www.udemy.com/certificate/UC-44cf2ceb-c1ca-4154-9d1f-37c0ab79b72e/)
+
+**** Este é um Projeto Concluido ****
